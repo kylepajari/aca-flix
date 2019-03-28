@@ -1,16 +1,21 @@
 /* eslint-disable no-console */
-export default function(state = {}, action) {
-  console.log("reducers", action.type);
-  switch (action.type) {
-    case "LOAD_SEARCH":
-      return action.data;
-    case "SEARCH_RESULTS_LOADED":
-      return action.data;
-    case "MY_MOVIE_LIST_LOADED":
-      return action.data;
-    case "LOAD_MY_MOVIE_LIST":
-      return action.data;
-    default:
-      return state;
+import { combineReducers } from "redux";
+
+function myMovieList(state = [], action) {
+  if (action.type === "MY_MOVIE_LIST_LOADED") {
+    return action.value;
   }
+  return state;
 }
+
+function searchResults(state = [], action) {
+  if (action.type === "SEARCH_RESULTS_LOADED") {
+    return action.value;
+  }
+  return state;
+}
+
+export default combineReducers({
+  myMovieList,
+  searchResults
+});

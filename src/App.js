@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   render() {
-    console.log("app props", this.props);
+    console.log("app props:", this.props);
     return (
       <div>
         <header className="Header">
@@ -38,7 +38,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("app mapstatetoprops", state);
+  console.log("app mapstatetoprops state:", state);
 
   return {
     myMovieList: state.myMovieList,
